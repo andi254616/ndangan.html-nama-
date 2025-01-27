@@ -214,9 +214,13 @@
 </div>
 
  <style>
-        @font-face {
+      @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+@font-face {
     font-family: 'Freestyle Script';
-    src: url('fonts/FreestyleScript.ttf') format('truetype');
+    src: url('freestyle-script.woff2') format('woff2'),
+         url('freestyle-script.woff') format('woff'),
+         url('freestyle-script.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -224,7 +228,7 @@
 body {
     background-color: #6a4236;
     color: gold;
-    font-family: 'Freestyle Script', sans-serif;
+    font-family: 'Freestyle Script', 'Dancing Script', cursive, sans-serif;
 }
 
 .shimmer {
@@ -420,7 +424,9 @@ document.getElementById("telegramForm").addEventListener("submit", function (eve
         <span id="rekeningBCA" class="text-lg times-text shimmer fade-in-left">1740105406</span>
         <button class="ml-2 text-lg times-text shimmer fade-in-left">M.Ikbal Awaludin (copy)</button>
     </div>
-   
+
+    
+    </div>
 
    <!-- Sosial Media (Instagram & Facebook) -->
 <div class="flex justify-center space-x-4 mt-4">

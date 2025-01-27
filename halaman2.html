@@ -214,23 +214,34 @@
 </div>
 
  <style>
-        body {
-            background-color: #6a4236;
-            color: gold;
-            font-family: 'Freestyle Script', sans-serif;
-        }
-        .shimmer {
-            animation: shimmer 5s infinite alternate;
-        }
-        @keyframes shimmer {
-            0% { text-shadow: 0 0 5px gold; }
-            50% { text-shadow: 0 0 15px gold, 0 0 30px yellow; }
-            100% { text-shadow: 0 0 5px gold; }
-        }
-        .countdown {
-            font-size: 2rem;
-            font-weight:;
-        }
+        @font-face {
+    font-family: 'Freestyle Script';
+    src: url('fonts/FreestyleScript.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: #6a4236;
+    color: gold;
+    font-family: 'Freestyle Script', sans-serif;
+}
+
+.shimmer {
+    animation: shimmer 5s infinite alternate;
+}
+
+@keyframes shimmer {
+    0% { text-shadow: 0 0 5px gold; }
+    50% { text-shadow: 0 0 15px gold, 0 0 30px yellow; }
+    100% { text-shadow: 0 0 5px gold; }
+}
+
+.countdown {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
     
 
 /* Efek Muncul Dari Kiri dan Berkilau */

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Undangan Pernikahan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('background.jpg') no-repeat center center/cover;
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 20px;
+            position: relative;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            z-index: 1;
+        }
+        h2, strong, p {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: fadeInRight 1.5s forwards;
+        }
+        h2 {
+            animation-delay: 0.3s;
+        }
+        strong {
+            animation-delay: 0.6s;
+        }
+        p {
+            animation-delay: 0.9s;
+        }
+        .btn {
+            margin-top: 20px;
+            padding: 12px 24px;
+            font-size: 18px;
+            background: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: black;
+            opacity: 0;
+            animation: fadeInUp 1s forwards 1.2s, pulse 1.5s infinite;
+        }
+        .btn:hover {
+            background: #ff9900;
+        }
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .flower {
+            position: absolute;
+            top: -10px;
+            width: 30px;
+            height: 30px;
+            background: url('flower.png') no-repeat center center/contain;
+            animation: fall linear infinite;
+            z-index: 0;
+        }
+        @keyframes fall {
+            from {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+	
+        <div class="text-yellow-400">
+    <h3 class="glowing-text">M.Ikbal Awaludin & Putri Andini Budiyono</h3><br>
+</div>
+
+<style>
+    .glowing-text {
+        color: #FFD700; /* Kuning emas */
+        text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 15px #FFD700, 0 0 20px #FFD700, 0 0 25px #FFD700;
+        animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+        0% {
+            text-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 15px #FFD700, 0 0 20px #FFD700, 0 0 25px #FFD700;
+        }
+        100% {
+            text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700, 0 0 30px #FFD700, 0 0 40px #FFD700, 0 0 50px #FFD700;
+        }
+    }
+</style>
+
+		 
+        <span>Kepada Yth: Bapak / Ibu</span>
+        <p><strong id="namaPenerima">Sahabat Tercinta</strong></p><br>
+        <p>Dengan hormat, kami mengundang Anda untuk hadir pada acara pernikahan kami.</p>
+        <button class="btn" onclick="bukaUndangan()">Buka Undangan</button>
+    </div>
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+        const nama = getQueryParam('nama');
+        if (nama) {
+            document.getElementById('namaPenerima').textContent = nama;
+        }
+        function bukaUndangan() {
+            window.location.href = 'halaman2.html?nama=' + encodeURIComponent(nama || 'Sahabat Tercinta');
+        }
+        function createFlower() {
+            const flower = document.createElement("div");
+            flower.classList.add("flower");
+            flower.style.left = Math.random() * 100 + "vw";
+            flower.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(flower);
+            setTimeout(() => {
+                flower.remove();
+            }, 5000);
+        }
+        setInterval(createFlower, 300);
+    </script>
+</body>
+</html>

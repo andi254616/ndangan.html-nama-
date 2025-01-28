@@ -275,6 +275,29 @@
   const interval = setInterval(updateCountdown, 1000);
   updateCountdown(); // Initial call
 </script>
-
+ <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+        const nama = getQueryParam('nama');
+        if (nama) {
+            document.getElementById('namaPenerima').textContent = nama;
+        }
+        function bukaUndangan() {
+            window.location.href = 'halaman2.html?nama=' + encodeURIComponent(nama || 'Sahabat Tercinta');
+        }
+        function createFlower() {
+            const flower = document.createElement("div");
+            flower.classList.add("flower");
+            flower.style.left = Math.random() * 100 + "vw";
+            flower.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(flower);
+            setTimeout(() => {
+                flower.remove();
+            }, 5000);
+        }
+        setInterval(createFlower, 300);
+    </script>
 </body>
 </html>
